@@ -59,10 +59,10 @@ prev_timestamp = curr_timestamp
 
 print("Setting up API Keys at: ", prev_timestamp)
 
-openai_api_key = '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'
-cohere_api_key = 'rl3LkumrFbBeTOcXHGFxNoe4vk7yIohQ6JWzzRfo'
+openai_api_key = ''
+cohere_api_key = ''
 #anthropic_api_key = 'YOUR ANTHROPIC API KEY'
-voyage_api_key = 'pa-SBRHXdLOqjIou8YBJm2DMZAd8QVqrIwvtEX_LWfAGqI'
+voyage_api_key = ''
 #google_api_key = 'YOUR GOOGLE PALM API KEY'
 openai.api_key = openai_api_key
 
