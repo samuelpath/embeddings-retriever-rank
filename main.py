@@ -41,7 +41,9 @@ from llama_index.evaluation import RetrieverEvaluator
 from typing import List
 import pandas as pd
 import openai
-import voyageai
+import voyageai # never used?
+
+import asyncio
 
 import nest_asyncio
 
@@ -277,7 +279,7 @@ async def evaluate():
           current_df = display_results(embed_name, rerank_name, eval_results)
           results_df = pd.concat([results_df, current_df], ignore_index=True)
 
-evaluate()
+asyncio.run(evaluate())
 
 curr_timestamp = datetime.now()
 print("--> Retriever and Evaluate defined in: ", curr_timestamp - prev_timestamp)
