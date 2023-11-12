@@ -230,7 +230,8 @@ async def evaluate():
       # Loop over rerankers
       for rerank_name, reranker in RERANKERS.items():
 
-          print(f"Running Evaluation for Embedding Model: {embed_name} and Reranker: {rerank_name}")
+          prev_timestamp = datetime.now()
+          print(f"Running Evaluation for Embedding Model: {embed_name} and Reranker: {rerank_name} at: {prev_timestamp}")
 
           # Define Retriever
           class CustomRetriever(BaseRetriever):
@@ -278,6 +279,10 @@ async def evaluate():
 
           current_df = display_results(embed_name, rerank_name, eval_results)
           results_df = pd.concat([results_df, current_df], ignore_index=True)
+
+          curr_timestamp = datetime.now()
+          print(f"--> Evaluation for Embedding Model: {embed_name} and Reranker: {rerank_name} ran in: {curr_timestamp - prev_timestamp}")
+          prev_timestamp = curr_timestamp
 
 asyncio.run(evaluate())
 
